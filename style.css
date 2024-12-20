@@ -1,0 +1,63 @@
+/* Reset and global styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#container .quote_box {
+  background: linear-gradient(145deg, #e0e0e0, #f0f0f0);
+  padding: 1vw;
+  margin: 2vw;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 27px 27px 57px #9f9f9f, inset -27px -27px 57px #ffffff;
+  width: 90%;
+  max-width: 400px;
+}
+
+#container .quote_box > * {
+  margin-bottom: 1vw;
+}
+
+#container .quote_box img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+}
+
+#container .quote_box .author_name {
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+#container .quote_box .quote_heading {
+  font-size: 2vw;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 720px) {
+  #container .quote_box .author_name {
+    font-size: 5vw;
+  }
+
+  #container .quote_box .quote_heading {
+    font-size: 3vw;
+  }
+}
