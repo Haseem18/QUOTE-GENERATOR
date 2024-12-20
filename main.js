@@ -34,15 +34,20 @@ function generateRandomAuthor() {
   nameElement.innerHTML = selectedAuthor.name;
 }
 
-generateRandomAuthor();
-setInterval(generateRandomAuthor, 4000);
+
 
 function generateRandomColour() {
   const color1 = Math.floor(Math.random() * 256);
   const color2 = Math.floor(Math.random() * 256);
   const color3 = Math.floor(Math.random() * 256);
-  body.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+  const color4 = Math.random();
+  body.style.backgroundColor = `rgba(${color1}, ${color2}, ${color3}, ${color4})`;
 }
 
-generateRandomColour();
-setInterval(generateRandomColour, 4000);
+function updateAll() {
+  generateRandomAuthor();
+  generateRandomColour();
+}
+
+updateAll();
+setInterval(updateAll, 4000);
