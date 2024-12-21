@@ -1,7 +1,13 @@
-const body = document.querySelector('body');
-const quoteElement = document.querySelector('.quote_heading');
-const imgElement = document.querySelector('img');
-const nameElement = document.querySelector('.author_name');
+const bodyElement = document.querySelector('body');
+
+function generateRandomColors() {
+  const color1 = Math.floor(Math.random() * 256);
+  const color2 = Math.floor(Math.random() * 256);
+  const color3 = Math.floor(Math.random() * 256);
+  bodyElement.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+}
+
+generateRandomColors();
 
 const authors = [
   { image: "./images/muhammad_ali.jpg", name: "Muhammad Ali", quote: "Don’t count the days, make the days count." },
@@ -26,28 +32,33 @@ const authors = [
   { image: "./images/lao_tzu.jpg", name: "Lao Tzu", quote: "The journey of a thousand miles begins with one step." }
 ];
 
-function generateRandomAuthor() {
-  const randomIndex = Math.floor(Math.random() * authors.length);
-  const selectedAuthor = authors[randomIndex];
-  quoteElement.innerHTML = selectedAuthor.quote;
-  imgElement.src = selectedAuthor.image;
-  nameElement.innerHTML = selectedAuthor.name;
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+const imageElement = document.querySelector('img');
+const titleElement = document.querySelector('h1');
+const quoteElement = document.querySelector('p');
+let currentAuthor = 0;
+
+function generateAuthor() {
+  imageElement.src = authors[currentAuthor].image;
+  titleElement.innerHTML = authors[currentAuthor].name;
+  quoteElement.innerHTML = authors[currentAuthor].quote;
+  generateRandomColors();
 }
+generateAuthor();
 
+nextButton.addEventListener("click", () => {
+  currentAuthor++;
+  if (currentAuthor >= authors.length) {
+    currentAuthor = authors.length - 1;
+  }
+  generateAuthor();
+})
 
-
-function generateRandomColour() {
-  const color1 = Math.floor(Math.random() * 256);
-  const color2 = Math.floor(Math.random() * 256);
-  const color3 = Math.floor(Math.random() * 256);
-  const color4 = Math.random();
-  body.style.backgroundColor = `rgba(${color1}, ${color2}, ${color3}, ${color4})`;
-}
-
-function updateAll() {
-  generateRandomAuthor();
-  generateRandomColour();
-}
-
-updateAll();
-setInterval(updateAll, 4000);
+prevButton.addEventListener("click", () => {
+  currentAuthor--;
+  if (currentAuthor < 0) {
+    currentAuthor = 0;
+  }
+  generateAuthor();
+})
