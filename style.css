@@ -1,63 +1,86 @@
-/* Reset and global styling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
 }
 
-#container {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
 }
 
-#container .quote_box {
-  background: linear-gradient(145deg, #e0e0e0, #f0f0f0);
-  padding: 1vw;
-  margin: 2vw;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 27px 27px 57px #9f9f9f, inset -27px -27px 57px #ffffff;
+#card {
   width: 90%;
-  max-width: 400px;
+  max-width: 430px;
+  background-color: white;
+  text-align: center;
+  padding: 1vw;
+  border-radius: 20px;
 }
 
-#container .quote_box > * {
+#card > * {
   margin-bottom: 1vw;
 }
 
-#container .quote_box img {
-  width: 100%;
-  max-width: 400px;
+#card img {
+  width: 50%;
   height: auto;
-  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
 }
 
-#container .quote_box .author_name {
+#card h1 {
   font-size: 3vw;
-  font-weight: bold;
 }
 
-#container .quote_box .quote_heading {
+#card p {
   font-size: 2vw;
-  font-weight: bold;
-  color: #333;
+  font-style: oblique;
+}
+
+#card .card_btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+#card .card_btn button {
+  background-color: indianred;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5vw 3vw;
+  border-radius: 30px;
+  font-size: 2vw;
 }
 
 @media (max-width: 720px) {
-  #container .quote_box .author_name {
+  
+  #card {
+    padding: 2vw;
+  }
+  
+  #card > * {
+    margin-bottom: 2vw;
+  }
+  
+  #card h1 {
     font-size: 5vw;
   }
-
-  #container .quote_box .quote_heading {
+  
+  #card p {
     font-size: 3vw;
+  }
+  
+  #card .card_btn button {
+    padding: 2vw 4vw;
+    font-size: 3vw;
+    font-weight: bold;
   }
 }
